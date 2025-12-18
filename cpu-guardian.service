@@ -1,0 +1,17 @@
+[Unit]
+Description=OCI CPU Guardian Service
+After=network.target
+
+[Service]
+# 指定运行脚本的用户
+User=ubuntu
+# 脚本所在路径
+WorkingDirectory=/home/ubuntu
+# 执行命令
+ExecStart=/usr/bin/python3 /home/ubuntu/cpu_manager.py
+# 自动重启
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
